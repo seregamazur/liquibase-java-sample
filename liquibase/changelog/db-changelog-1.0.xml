@@ -3,25 +3,12 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-  <changeSet author="smazu" id="1.01">
+  <changeSet author="seregamazur" id="1.01">
     <comment>CREATE STRUCTURE</comment>
     <sqlFile path="../script/1.0/1.1_CREATE_INITIAL_STRUCTURE.sql" relativeToChangelogFile="true"/>
     <rollback>
       <sqlFile path="../script/1.0/1.1_ROLLBACK.sql" relativeToChangelogFile="true"/>
     </rollback>
   </changeSet>
-
-<!--  <changeSet author="smazu" id="1.01">-->
-<!--    <comment>JIRA-ticket-id: title</comment>-->
-<!--    <sql>-->
-<!--      INSERT INTO CUSTOMERS (ID, NAME, SURNAME) VALUES (CUSTOMERS.NEXTVAL, 'Serhii', 'Mazur');-->
-<!--    </sql>-->
-<!--    <rollback>-->
-<!--      <sql>-->
-<!--        DELETE FROM CUSTOMERS WHERE NAME IS 'Serhii';-->
-<!--      </sql>-->
-<!--    </rollback>-->
-<!--  </changeSet>-->
-
 
 </databaseChangeLog>
