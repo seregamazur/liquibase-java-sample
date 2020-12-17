@@ -33,5 +33,5 @@ public class Order {
     private Customer customer;
 
     @OneToMany
-    private List<OrderedProduct> products;
+    private List<Product> products;
 }
