@@ -1,5 +1,6 @@
 package liqui.db.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,7 +13,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "PRODUCT")
+@Entity
+@Table(schema = "DEVELOP", name = "PRODUCT")
 public class Product {
 
     @Id

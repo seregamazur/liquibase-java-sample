@@ -6,6 +6,15 @@
 
   <groupId>org.example</groupId>
   <artifactId>liquibase-test</artifactId>
+
+  <properties>
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <lombok.version>1.18.16</lombok.version>
+    <liquibase.propertyFile>liquibase/properties/liquibase.properties</liquibase.propertyFile>
+    <liquibase.changeLogFile>liquibase/changelog/db-changelog-master.xml</liquibase.changeLogFile>
+    <liquibase.plugin.version>4.2.2</liquibase.plugin.version>
+  </properties>
+
   <build>
     <plugins>
       <plugin>
@@ -39,14 +48,6 @@
     <relativePath/>
   </parent>
 
-  <properties>
-    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-    <lombok.version>1.18.16</lombok.version>
-    <liquibase.version>4.2.2</liquibase.version>
-    <liquibase.propertyFile>${project.basedir}/liquibase/properties/liquibase.properties</liquibase.propertyFile>
-    <liquibase.changeLogFile>${project.basedir}/liquibase/changelog/db-changelog-master.xml</liquibase.changeLogFile>
-    <liquibase.plugin.version>4.0.0</liquibase.plugin.version>
-  </properties>
 
   <dependencies>
 
@@ -80,6 +81,11 @@
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>42.2.18</version>
+    </dependency>
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-maven-plugin</artifactId>
+      <version>4.2.2</version>
     </dependency>
 
     <!--    utils-->

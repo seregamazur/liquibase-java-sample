@@ -2,7 +2,12 @@ package liqui.db.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +19,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "ORDER")
+@Entity
+@Table(schema = "DEVELOP", name = "ORDER")
 public class Order {
 
     @Id
@@ -22,7 +28,10 @@ public class Order {
 
     private String date;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Customer customer;
 
+    @OneToMany
     private List<OrderedProduct> products;
 }
