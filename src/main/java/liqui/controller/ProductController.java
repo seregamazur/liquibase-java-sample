@@ -1,11 +1,11 @@
 package liqui.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import liqui.db.model.Product;
 import liqui.db.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +19,13 @@ public class ProductController {
     private final ProductRepository repository;
 
     @GetMapping("/all")
-    public List<Product> getAllProducts() {
-        return repository.findAll();
+    public ResponseEntity<List<Product>> getAllProducts() {
+        return ResponseEntity.ok(repository.findAll());
     }
 
     @GetMapping("/{id}")
-    public Optional<Product> getProductById(@PathVariable final Integer id) {
-        return repository.findById(id);
+    public ResponseEntity<Product> getProductById(@PathVariable final Integer id) {
+        return ResponseEntity.ok(repository.findById(id).get());
     }
 
 }

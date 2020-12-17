@@ -24,5 +24,5 @@ public class Order {
 
     private Customer customer;
 
-    private List<Product> products;
+    private List<OrderedProduct> products;
 }

@@ -25,10 +25,8 @@
         <artifactId>liquibase-maven-plugin</artifactId>
         <version>${liquibase.plugin.version}</version>
         <configuration>
+          <changeLogFile>${liquibase.changeLogFile}</changeLogFile>
           <propertyFile>${liquibase.propertyFile}</propertyFile>
-          <defaultSchemaName>DEVELOP</defaultSchemaName>
-          <databaseChangeLogTableName>DATABASECHANGELOG_RTM</databaseChangeLogTableName>
-          <databaseChangeLogLockTableName>DATABASECHANGELOGLOCK_RTM</databaseChangeLogLockTableName>
         </configuration>
       </plugin>
     </plugins>
@@ -45,7 +43,8 @@
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <lombok.version>1.18.16</lombok.version>
     <liquibase.version>4.2.2</liquibase.version>
-    <liquibase.propertyFile>${project.basedir}/liquibase/properties/liquibase-local.properties</liquibase.propertyFile>
+    <liquibase.propertyFile>${project.basedir}/liquibase/properties/liquibase.properties</liquibase.propertyFile>
+    <liquibase.changeLogFile>${project.basedir}/liquibase/changelog/db-changelog-master.xml</liquibase.changeLogFile>
     <liquibase.plugin.version>4.0.0</liquibase.plugin.version>
   </properties>
 
@@ -78,9 +77,9 @@
       <version>2.2</version>
     </dependency>
     <dependency>
-      <groupId>org.liquibase</groupId>
-      <artifactId>liquibase-core</artifactId>
-      <version>${liquibase.version}</version>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.18</version>
     </dependency>
 
     <!--    utils-->

@@ -1,11 +1,11 @@
 package liqui.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import liqui.db.model.Customer;
 import liqui.db.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,22 +21,23 @@ public class CustomerController {
     private final CustomerRepository repository;
 
     @GetMapping("/all")
-    public List<Customer> getAllCustomers() {
-        return repository.findAll();
+    public ResponseEntity<List<Customer>> getAllCustomers() {
+        return ResponseEntity.ok(repository.findAll());
     }
 
     @GetMapping("/{id}")
-    public Optional<Customer> getCustomerById(@PathVariable final Integer id) {
-        return repository.findById(id);
+    public ResponseEntity<Customer> getCustomerById(@PathVariable final Integer id) {
+        return ResponseEntity.ok(repository.findById(id).get());
     }
 
     @PostMapping
-    public Customer createCustomer(final Customer customer) {
-        return repository.save(customer);
+    public ResponseEntity<Customer> createCustomer(final Customer customer) {
+        return ResponseEntity.ok(repository.save(customer));
     }
 
     @DeleteMapping
-    public void deleteCustomer(final Customer customer) {
+    public ResponseEntity<?> deleteCustomer(final Customer customer) {
         repository.delete(customer);
+        return ResponseEntity.ok().build();
     }
 }
