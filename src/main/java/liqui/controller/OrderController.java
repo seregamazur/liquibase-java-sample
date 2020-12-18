@@ -25,13 +25,13 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Order> getProductById(@PathVariable final Integer id) {
+    public ResponseEntity<Order> getOrderById(@PathVariable final Integer id) {
         return ResponseEntity.ok(repository.findById(id).get());
     }
 
     @GetMapping("/customer/{customerId}")
-    public ResponseEntity<List<Order>> getProductsByCustomerId(@PathVariable final Integer customerId) {
-        return ResponseEntity.ok(repository.findByCustomerId(customerId));
+    public ResponseEntity<List<Order>> getOrdersByCustomerId(@PathVariable final Integer customerId) {
+        return ResponseEntity.ok(repository.findAllByCustomerId(customerId));
     }
 
 }

@@ -2,6 +2,8 @@ package liqui.db.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -14,13 +16,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(schema = "DEVELOP", name = "CUSTOMER")
-public class Customer {
+@Table(schema = "DEVELOP", name = "ORDER_ITEM")
+public class OrderItem {
 
     @Id
     private Integer id;
 
-    private String name;
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "PRODUCT_ID")
+    private Product product;
 
-    private String surname;
+    private int quantity;
 }

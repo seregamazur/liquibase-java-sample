@@ -29,9 +29,10 @@ public class Order {
     private String date;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "ID", referencedColumnName = "CUSTOMER_ID")
     private Customer customer;
 
     @OneToMany
-    private List<Product> products;
+    @JoinColumn(name = "ORDER_ID", referencedColumnName = "ID")
+    private List<OrderItem> products;
 }
